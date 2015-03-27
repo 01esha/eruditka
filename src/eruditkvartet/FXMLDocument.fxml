@@ -24,7 +24,7 @@
          <children>
       <Label id="teamname" fx:id="lblTeam1" alignment="CENTER" contentDisplay="CENTER" text="Команда №1" GridPane.halignment="CENTER" />
       <Label id="teamname" fx:id="lblTeam2" alignment="CENTER" text="Команда №2" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-      <Button id="gear" contentDisplay="CENTER" onAction="#btnContClick" prefHeight="30.0" prefWidth="30.0" text="" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+      <Button id="gear" contentDisplay="CENTER" onAction="#btnPropertyClick" prefHeight="30.0" prefWidth="30.0" text="" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
       <Button id="glass-grey" fx:id="btnCont" disable="true" onAction="#btnContClick" text="Продолжить" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
             <Label id="teamname" fx:id="lblTeam3" alignment="CENTER" layoutX="192.0" layoutY="23.0" text="Команда №3" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
             <Label id="teamname" fx:id="lblTeam4" alignment="CENTER" layoutX="342.0" layoutY="23.0" text="Команда №4" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
