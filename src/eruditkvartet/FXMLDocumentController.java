@@ -46,7 +46,8 @@ public class FXMLDocumentController implements Initializable {
    public KeyCode keyTeam1 =  KeyCode.SHIFT;
    public KeyCode keyTeam2 =  KeyCode.ENTER;   
    public KeyCode keyTeam3 =  KeyCode.ALT;   
-   public KeyCode keyTeam4 =  KeyCode.SPACE; 
+   public KeyCode keyTeam4 =  KeyCode.CONTROL; 
+   public KeyCode keyReset =  KeyCode.PAGE_UP; 
    
    String sNameTeam1 = "Команда 1";
    String sNameTeam2 = "Команда 2";
@@ -111,7 +112,10 @@ public class FXMLDocumentController implements Initializable {
                         LedTeam4.setOn(true);                        
                         playsignal("/sound/push.wav");       
                         btnCont.setDisable(false);
-                }                
+                }
+                 if (event.getCode() == keyReset && btnblock) {                                                            
+                        btnContClick(null);
+                }         
             }
     } );   
     }
@@ -164,7 +168,8 @@ public class FXMLDocumentController implements Initializable {
     keyTeam1 = KeyCode.getKeyCode(props.getProperty("keyTeam1", "SHIFT"));
     keyTeam2= KeyCode.getKeyCode(props.getProperty("keyTeam2", "ENTER"));   
     keyTeam3= KeyCode.getKeyCode(props.getProperty("keyTeam3", "ALT"));
-    keyTeam4= KeyCode.getKeyCode(props.getProperty("keyTeam4", "SPACE"));
+    keyTeam4= KeyCode.getKeyCode(props.getProperty("keyTeam4", "CTRL"));
+    keyReset= KeyCode.getKeyCode(props.getProperty("keyReset", "Page Up"));
     sNameTeam1 = props.getProperty("NameTeam1", "Команда 1");
     sNameTeam2 = props.getProperty("NameTeam2", "Команда 2");
     sNameTeam3 = props.getProperty("NameTeam3", "Команда 3");

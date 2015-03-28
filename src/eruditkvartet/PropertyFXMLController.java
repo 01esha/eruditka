@@ -29,10 +29,12 @@ public class PropertyFXMLController implements Initializable {
 @FXML public TextField tfKeyTeam2;
 @FXML public TextField tfKeyTeam3;
 @FXML public TextField tfKeyTeam4;
+@FXML public TextField tfKeyReset;
 public KeyCode keyTeam1 =  KeyCode.SHIFT;
    public KeyCode keyTeam2 =  KeyCode.ENTER;   
    public KeyCode keyTeam3 =  KeyCode.ALT;   
-   public KeyCode keyTeam4 =  KeyCode.SPACE;         
+   public KeyCode keyTeam4 =  KeyCode.CONTROL;         
+   public KeyCode keyReset =  KeyCode.PAGE_UP;
         
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -65,6 +67,13 @@ public KeyCode keyTeam1 =  KeyCode.SHIFT;
             tfKeyTeam4.setText(ke.getCode().toString());
             keyTeam4 = ke.getCode();
             }});
+        tfKeyReset.addEventFilter(KeyEvent.KEY_PRESSED, new javafx.event.EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent ke) {            
+            tfKeyReset.clear();
+            tfKeyReset.setText(ke.getCode().toString());
+            keyReset = ke.getCode();
+            }});
     }    
     
     public void loadParams() {
@@ -89,8 +98,10 @@ public KeyCode keyTeam1 =  KeyCode.SHIFT;
     keyTeam2 = KeyCode.getKeyCode(props.getProperty("keyTeam2", "ENTER"));
     tfKeyTeam3.setPromptText(props.getProperty("keyTeam3", "ALT"));
     keyTeam3 = KeyCode.getKeyCode(props.getProperty("keyTeam3", "ALT"));
-    tfKeyTeam4.setPromptText(props.getProperty("keyTeam4", "SPACE"));
-    keyTeam4 = KeyCode.getKeyCode(props.getProperty("keyTeam4", "SPACE"));
+    tfKeyTeam4.setPromptText(props.getProperty("keyTeam4", "CTRL"));
+    keyTeam4 = KeyCode.getKeyCode(props.getProperty("keyTeam4", "CTRL"));
+    tfKeyReset.setPromptText(props.getProperty("keyReset", "Page Up"));
+    keyReset = KeyCode.getKeyCode(props.getProperty("keyReset", "Page Up"));
     
     tfNameTeam1.setText(props.getProperty("NameTeam1", "Команда 1")); 
     tfNameTeam2.setText(props.getProperty("NameTeam2", "Команда 2")); 
@@ -110,6 +121,7 @@ public KeyCode keyTeam1 =  KeyCode.SHIFT;
         props.setProperty("keyTeam2", keyTeam2.getName());        
         props.setProperty("keyTeam3", keyTeam3.getName());        
         props.setProperty("keyTeam4", keyTeam4.getName());        
+        props.setProperty("keyReset", keyReset.getName());
         File f = new File("ek.properties");
         OutputStream out = new FileOutputStream( f );
         props.store(out, "");
